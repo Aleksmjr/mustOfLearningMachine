@@ -1,5 +1,5 @@
 // if else (if ru - russian words, if eu - eng words)
-let lang = 'eu';
+let lang = 'ru';
 let arr;
 
 if (lang == 'ru') {
@@ -12,23 +12,22 @@ console.log(arr);
 //switch-case
 switch (lang) {
   case 'ru':
-    lang = 'ru';
     console.log('пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс');
     break;
   case 'eu':
-    lang = 'eu';
     console.log('monday', 'tuesday', 'wd', 'th', 'fr', 'st', 'sn');
     break;
 }
 // n-mas[]
-let langAll = [];
-langAll['ru'] = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'все'];
-langAll['eu'] = ['monday', 'tuesday', 'wd', 'th', 'fr', 'st', 'sn'];
+let langAll = {
+  ru: ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'все'],
+  eu: ['monday', 'tuesday', 'wd', 'th', 'fr', 'st', 'sn'],
+};
 console.log(langAll[lang]);
 // namePerson
-let namePerson = ``;
-namePerson === `Артем`
+let namePerson = '';
+namePerson === 'Артем'
   ? console.log('Директор')
-  : namePerson === `Артем`
+  : namePerson === 'Михаил'
   ? console.log('Препод')
-  : console.log(`студент`);
+  : console.log('студент');
