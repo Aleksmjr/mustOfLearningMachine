@@ -85,18 +85,22 @@ let expens = [];
 // Function return all sums (or cums in your throath :D)
 let getExpensesMonth = function () {
   let sum;
-
+  let totalSum = 0;
+  // цикл на 2 вопроса
   for (let i = 0; i < 2; i++) {
+    // присваиваем i-тому(0 и 1) (итерация) i-ому элементу массива expens ответ на prompt - обязательные статьи расходов
     expens[i] = prompt('Введите обязательную статью расходов?', 'Садик');
     do {
-      sum = prompt('Во сколько это обойдется?');
-      if (sum === isNumber) {
-        prompt('Ввод отменён');
-        break;
+      //переменной sum присвается рез-тат prompt
+      sum = +prompt('Во сколько это обойдется?');
+      //В данном случае, если sum = число, нам вернется !true(false) и условие НЕ ВЫПОЛНИТСЯ. Если sum = не число, нам вернется !false (true) и условие ВЫПОЛНИТСЯ
+      if (!isNumber(sum)) {
+        confirm('Ввод отменён');
       }
     } while (!isNumber(sum));
+    totalSum = totalSum + sum;
   }
-  return sum;
+  return totalSum;
 };
 console.log(expens);
 let expensesAmount = getExpensesMonth();
@@ -109,15 +113,19 @@ function getAccumulatedMonth(budget, expensesAmount) {
 // added func in variable
 let accumulatedMonth = getAccumulatedMonth(moneys, expensesAmount);
 //
-let targetMonth = function getTargetMonth(target, incomePerMonth) {
-  if (targetMonth <= 0) {
+// let mission = 200000; - цель заработать бабки
+// accumulatedMonth - доход в месяц
+// функция геттаргетманф расчитывает нам, за сколько месяцев будет достигнута цель и если ответ положительный, то выдает нам модалку с положительнымо ответом, при отрицалове, с отрицательным ответом
+function getTargetMonth(a, b) {
+  let haha = a / b;
+  if (haha < 0) {
     alert('Цель не будет достигнута');
   } else {
     alert('Цель будет достигнута');
   }
-  return target / incomePerMonth;
-};
-console.log(targetMonth(mission, accumulatedMonth));
+}
+tagetSums = getTargetMonth(mission, accumulatedMonth);
+console.log(tagetSums);
 
 let budgetDay = accumulatedMonth / 30;
 console.log(budgetDay);
